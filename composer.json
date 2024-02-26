@@ -1,0 +1,16 @@
+{
+  "name": "sethsharp/blog",
+  "description": "A blog CRUD package to",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Seth Sharp",
+      "homepage": "https://www.sethsharpportfolio.com/"
+    }
+  ],
+  "homepage": "https://github.com/SethSharp/Blog",
+  "keywords": [
+    "Laravel",
+    "Blog"
+  ]
+}
