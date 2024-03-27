@@ -1,6 +1,6 @@
 <?php
 
-namespace Sethsharp\BlogCrud\Database\Factories;
+namespace SethSharp\BlogCrud\Database\Factories\Models\Iam;
 
 use Codinglabs\Roles\Role;
 use Illuminate\Support\Str;

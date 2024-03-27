@@ -1,6 +1,6 @@
 <?php
 
-namespace Sethsharp\BlogCrud\Database\Factories;
+namespace SethSharp\BlogCrud\Database\Factories;
 
 use SethSharp\BlogCrud\Models\Iam\User;
 use SethSharp\BlogCrud\Models\Blog\Comment;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Sethsharp\BlogCrud\Database\Factories;
+namespace SethSharp\BlogCrud\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use SethSharp\BlogCrud\Models\Iam\User;
 use SethSharp\BlogCrud\Models\Blog\Blog;
 use SethSharp\BlogCrud\Models\Blog\Comment;
-use SethSharp\BlogCrud\Models\Iam\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BlogFactory extends Factory
 {

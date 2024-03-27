@@ -1,6 +1,6 @@
 <?php
 
-namespace Sethsharp\BlogCrud\Database\Factories;
+namespace SethSharp\BlogCrud\Database\Factories;
 
 use SethSharp\BlogCrud\Models\Blog\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
