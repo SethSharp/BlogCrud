@@ -1,5 +1,5 @@
 {
-  "name": "sethsharp/blog-crud",
+  "name": "sethsharp/blog",
   "description": "A blog CRUD package",
   "license": "MIT",
   "authors": [
@@ -20,7 +20,8 @@
   },
   "autoload": {
     "psr-4": {
-      "SethSharp\\BlogCrud\\": "src"
+      "SethSharp\\BlogCrud\\": "src",
+      "Sethsharp\\BlogCrud\\Database\\Factories\\": "database/factories"
     }
   }
 }
