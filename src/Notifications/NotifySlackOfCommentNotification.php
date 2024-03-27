@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\Blog\Notifications;
+namespace SethSharp\BlogCrud\Notifications;
 
-use sethsharp\Models\Blog\Blog;
-use sethsharp\Models\Blog\Comment;
+use SethSharp\BlogCrud\Models\Blog\Blog;
+use SethSharp\BlogCrud\Models\Blog\Comment;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Slack\SlackMessage;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\ActionsBlock;

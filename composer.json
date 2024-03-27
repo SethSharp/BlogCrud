@@ -1,6 +1,6 @@
 {
-  "name": "sethsharp/blog",
-  "description": "A blog CRUD package to",
+  "name": "sethsharp/blog-crud",
+  "description": "A blog CRUD package",
   "license": "MIT",
   "authors": [
     {
@@ -17,5 +17,10 @@
   "require": {
     "php": "^8.2",
     "codinglabsau/laravel-roles": "^2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "SethSharp\\BlogCrud\\": "src"
+    }
   }
 }

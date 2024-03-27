@@ -1,6 +1,6 @@
 <?php
 
-namespace sethsharp\Models\Blog;
+namespace SethSharp\BlogCrud\Models\Blog;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

@@ -1,10 +1,10 @@
 <?php
 
-namespace sethsharp\Models\Actions;
+namespace SethSharp\BlogCrud\Actions\Blogs;
 
-use App\Domain\File\Actions\DestroyFileAction;
-use sethsharp\Models\Blog\Blog;
-use sethsharp\Models\File;
+use SethSharp\BlogCrud\Actions\Files\DestroyFileAction;
+use SethSharp\BlogCrud\Models\Blog\Blog;
+use SethSharp\BlogCrud\Models\File;
 
 class CleanBlogContentAction
 {

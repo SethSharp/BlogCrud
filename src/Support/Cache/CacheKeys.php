@@ -1,9 +1,9 @@
 <?php
 
 
-namespace sethsharp\Support\Cache;
+namespace SethSharp\BlogCrud\Support\Cache;
 
-use sethsharp\Models\Blog\Blog;
+use SethSharp\BlogCrud\Models\Blog\Blog;
 
 class CacheKeys
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace sethsharp\Models\Actions;
+namespace SethSharp\BlogCrud\Actions\Blogs;
 
-use sethsharp\Models\Blog\Blog;
+use SethSharp\BlogCrud\Models\Blog\Blog;
 
 class DeleteBlogAction
 {

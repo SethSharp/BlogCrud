@@ -1,9 +1,9 @@
 <?php
 
-namespace sethsharp\Models\Actions;
+namespace SethSharp\BlogCrud\Actions\Blogs;
 
-use sethsharp\Models\Blog\Blog;
-use sethsharp\Models\Blog\Collection;
+use SethSharp\BlogCrud\Models\Blog\Blog;
+use SethSharp\BlogCrud\Models\Blog\Collection;
 
 class RemoveBlogFromCollectionAction
 {

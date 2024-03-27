@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Blog\Notifications;
+namespace SethSharp\BlogCrud\Notifications;
 
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\SlackMessage;

@@ -1,13 +1,13 @@
 <?php
 
-namespace sethsharp\Models\Actions;
+namespace SethSharp\BlogCrud\Actions\Blogs;
 
 use Illuminate\Support\Str;
-use sethsharp\Models\Blog\Blog;
-use sethsharp\Models\Blog\Collection;
+use SethSharp\BlogCrud\Models\Blog\Blog;
+use SethSharp\BlogCrud\Models\Blog\Collection;
 use Illuminate\Support\Facades\Cache;
-use sethsharp\Support\Cache\CacheKeys;
-use sethsharp\Models\Requests\UpdateBlogRequest;
+use SethSharp\BlogCrud\Support\Cache\CacheKeys;
+use SethSharp\BlogCrud\Models\Requests\UpdateBlogRequest;
 
 class UpdateBlogAction
 {

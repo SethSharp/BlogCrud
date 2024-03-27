@@ -1,10 +1,10 @@
 <?php
 
-namespace sethsharp\Models\Requests;
+namespace SethSharp\BlogCrud\Models\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use sethsharp\Models\Blog\Blog;
+use SethSharp\BlogCrud\Models\Blog\Blog;
 
 class UpdateBlogRequest extends FormRequest
 {

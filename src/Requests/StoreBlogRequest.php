@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Dashboard\Blogs;
+namespace SethSharp\BlogCrud\Requests;
 
 use Illuminate\Validation\Rule;
-use App\Domain\Blog\Models\Blog;
+use SethSharp\BlogCrud\Models\Blog\Blog;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreBlogRequest extends FormRequest

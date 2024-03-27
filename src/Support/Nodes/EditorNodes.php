@@ -1,9 +1,9 @@
 <?php
 
-namespace sethsharp\Support\Nodes;
+namespace SethSharp\BlogCrud\Support\Editor\Nodes;
 
-use sethsharp\Support\Components;
-use sethsharp\Support\Nodes\Image;
+use SethSharp\BlogCrud\Support\Editor\Components;
+use SethSharp\BlogCrud\Support\Editor\Nodes\Image;
 
 class EditorNodes extends Components
 {

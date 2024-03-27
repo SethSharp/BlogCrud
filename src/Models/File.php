@@ -1,6 +1,6 @@
 <?php
 
-namespace sethsharp\Models;
+namespace SethSharp\BlogCrud\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

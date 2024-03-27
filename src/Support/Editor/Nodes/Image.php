@@ -1,8 +1,8 @@
 <?php
 
-namespace sethsharp\Support\Nodes;
+namespace SethSharp\BlogCrud\Support\Editor\Nodes;
 
-use sethsharp\Support\Node;
+use SethSharp\BlogCrud\Support\Editor\Node;
 
 class Image extends Node
 {

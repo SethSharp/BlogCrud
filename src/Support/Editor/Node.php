@@ -1,6 +1,6 @@
 <?php
 
-namespace sethsharp\Support;
+namespace SethSharp\BlogCrud\Support\Editor;
 
 abstract class Node
 {

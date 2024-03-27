@@ -1,6 +1,6 @@
 <?php
 
-namespace Sethsharp\Blog;
+namespace Sethsharp\BlogCrud;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Blade;

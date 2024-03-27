@@ -1,12 +1,12 @@
 <?php
 
-namespace sethsharp\Models\Blog;
+namespace SethSharp\BlogCrud\Models\Blog;
 
-use sethsharp\Models\Iam\User;
+use SethSharp\BlogCrud\Models\Iam\User;
 use Illuminate\Support\Facades\Cache;
-use sethsharp\Support\Cache\CacheKeys;
+use SethSharp\BlogCrud\Support\Cache\CacheKeys;
 use Illuminate\Database\Eloquent\Model;
-use sethsharp\Support\Nodes\EditorNodes;
+use SethSharp\BlogCrud\Support\Editor\Nodes\EditorNodes;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -32,7 +32,7 @@ class Blog extends Model
 
     public function comments(): BelongsToMany
     {
-        return $this->belongsToMany(\App\Domain\Blog\Models\Comment::class, 'blog_comment', 'blog_id', 'comment_id')
+        return $this->belongsToMany(\SethSharp\BlogCrud\Models\Blog\Comment::class, 'blog_comment', 'blog_id', 'comment_id')
             ->withTimestamps();
     }
 
@@ -44,12 +44,12 @@ class Blog extends Model
 
     public function collection(): BelongsTo
     {
-        return $this->belongsTo(\App\Domain\Blog\Models\Collection::class);
+        return $this->belongsTo(\SethSharp\BlogCrud\Models\Blog\Collection::class);
     }
 
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(\App\Domain\Blog\Models\Tag::class, 'blog_tag')
+        return $this->belongsToMany(\SethSharp\BlogCrud\Models\Blog\Tag::class, 'blog_tag')
             ->withTimestamps();
     }
 
@@ -75,7 +75,7 @@ class Blog extends Model
 
     public function render(): string
     {
-        $nodes = \App\Domain\Blog\Models\app(EditorNodes::class)::$components;
+        $nodes = \SethSharp\BlogCrud\Models\Blog\app(EditorNodes::class)::$components;
 
         $result = $this->content;
 

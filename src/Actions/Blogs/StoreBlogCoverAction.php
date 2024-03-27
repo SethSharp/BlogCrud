@@ -1,6 +1,6 @@
 <?php
 
-namespace sethsharp\Models\Actions;
+namespace SethSharp\BlogCrud\Actions\Blogs;
 
 use League\Flysystem\Visibility;
 use Illuminate\Http\UploadedFile;

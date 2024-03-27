@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\Blog\Policies;
+namespace SethSharp\BlogCrud\Policies;
 
-use sethsharp\Models\Iam\User;
-use sethsharp\Models\Blog\Blog;
+use SethSharp\BlogCrud\Models\Iam\User;
+use SethSharp\BlogCrud\Models\Blog\Blog;
 
 class BlogPolicy
 {

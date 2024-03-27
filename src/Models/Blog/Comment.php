@@ -1,12 +1,12 @@
 <?php
 
-namespace sethsharp\Models\Blog;
+namespace SethSharp\BlogCrud\Models\Blog;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use sethsharp\Models\Iam\User;
+use SethSharp\BlogCrud\Models\Iam\User;
 
 class Comment extends Model
 {

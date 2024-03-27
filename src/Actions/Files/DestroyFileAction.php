@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\File\Actions;
+namespace SethSharp\BlogCrud\Actions\Files;
 
 use Exception;
 use App\Domain\File\Models\File;
