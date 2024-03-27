@@ -12,5 +12,8 @@
   "keywords": [
     "Laravel",
     "Blog"
-  ]
+  ],
+  "require": {
+    "codinglabsau/laravel-roles": "^2.4"
+  }
 }
