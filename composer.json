@@ -5,7 +5,8 @@
   "authors": [
     {
       "name": "Seth Sharp",
-      "homepage": "https://www.sethsharpportfolio.com/"
+      "homepage": "https://www.sethsharpportfolio.com/",
+      "role": "Maintainer, Developer"
     }
   ],
   "homepage": "https://github.com/SethSharp/Blog",
@@ -14,6 +15,7 @@
     "Blog"
   ],
   "require": {
+    "php": "^8.2",
     "codinglabsau/laravel-roles": "^2.4"
-  }
+  },
 }
