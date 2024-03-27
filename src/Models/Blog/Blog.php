@@ -2,15 +2,15 @@
 
 namespace SethSharp\BlogCrud\Models\Blog;
 
-use SethSharp\BlogCrud\Models\Iam\User;
 use Illuminate\Support\Facades\Cache;
-use SethSharp\BlogCrud\Support\Cache\CacheKeys;
 use Illuminate\Database\Eloquent\Model;
-use SethSharp\BlogCrud\Support\Editor\Nodes\EditorNodes;
+use SethSharp\BlogCrud\Models\Iam\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use SethSharp\BlogCrud\Support\Cache\CacheKeys;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use SethSharp\BlogCrud\Support\Editor\Nodes\EditorNodes;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Blog extends Model
@@ -75,7 +75,7 @@ class Blog extends Model
 
     public function render(): string
     {
-        $nodes = \SethSharp\BlogCrud\Models\Blog\app(EditorNodes::class)::$components;
+        $nodes = app(EditorNodes::class)::$components;
 
         $result = $this->content;
 

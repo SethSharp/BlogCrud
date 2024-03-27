@@ -7,7 +7,7 @@ use SethSharp\BlogCrud\Models\Blog\Blog;
 
 class BlogPolicy
 {
-    public function before(User $user, string $ability): ?bool
+    public function before(User $user): ?bool
     {
         if ($user->hasRole(User::ROLE_ADMIN)) {
             return true;
