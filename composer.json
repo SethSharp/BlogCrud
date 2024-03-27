@@ -17,5 +17,5 @@
   "require": {
     "php": "^8.2",
     "codinglabsau/laravel-roles": "^2.4"
-  },
+  }
 }
