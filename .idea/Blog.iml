@@ -2,7 +2,7 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/database/factories/Models/Iam" isTestSource="false" packagePrefix="SethSharp\BlogCrud\Database\Factories\Models\Iam\" />
+      <sourceFolder url="file://$MODULE_DIR$/database/factories" isTestSource="false" packagePrefix="SethSharp\BlogCrud\Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="SethSharp\BlogCrud\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/carbonphp/carbon-doctrine-types" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/codinglabsau/laravel-roles" />

@@ -2,16 +2,16 @@
 
 namespace SethSharp\BlogCrud\Models\Blog;
 
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Database\Eloquent\Model;
-use SethSharp\BlogCrud\Models\Iam\User;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use SethSharp\BlogCrud\Support\Cache\CacheKeys;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use SethSharp\BlogCrud\Support\Editor\Nodes\EditorNodes;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Cache;
+use SethSharp\BlogCrud\Models\Iam\User;
+use SethSharp\BlogCrud\Support\Cache\CacheKeys;
+use SethSharp\BlogCrud\Support\Editor\Nodes\EditorNodes;
 
 class Blog extends Model
 {

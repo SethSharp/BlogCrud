@@ -49,9 +49,9 @@ class UpdateBlogAction
         if ($coverImage = $updateBlogRequest->file('cover_image')) {
             $coverImagePath = app(StoreBlogCoverAction::class)($coverImage, $blog->id);
 
-            $blog->update([
-                'cover_image' => UpdateBlogAction . phpconfig('app.cloudfront_url') . $coverImagePath
-            ]);
+//            $blog->update([
+//                'cover_image' => config('app.cloudfront_url') . $coverImagePath
+//            ]);
         }
 
         $blog = app(CleanBlogContentAction::class)($blog);
