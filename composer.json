@@ -21,7 +21,7 @@
   "autoload": {
     "psr-4": {
       "SethSharp\\BlogCrud\\": "src",
-      "SethSharp\\BlogCrud\\Database\\Factories\\Models\\Iam\\": "database/factories/Models/Iam/"
+      "SethSharp\\BlogCrud\\Database\\Factories\\Models\\Iam\\": "database/factories/Models/Iam"
     }
   }
 }
