@@ -15,7 +15,6 @@ use SethSharp\BlogCrud\Support\Editor\Nodes\EditorNodes;
 
 class Blog extends Model
 {
-    use HasFactory;
     use SoftDeletes;
 
     protected $guarded = [];
