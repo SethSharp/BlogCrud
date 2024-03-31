@@ -14,6 +14,8 @@ return new class() extends Migration {
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->string('cover_image')->nullable();
+            $table->foreignId('collection_id')->nullable();
             $table->foreignId('author_id');
             $table->boolean('is_draft');
             $table->string('title');

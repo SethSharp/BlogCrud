@@ -11,14 +11,11 @@ class StoreFileAction
     public function __invoke(UploadedFile $file, int $blogId, string $path = '/content/'): string
     {
         $structure = app()->environment('testing') || app()->environment('local')
-            ? 'testing/' : 'production/';
+            ? 'testing' : 'production';
 
-        $filename = uniqid() . '_' . $file->getClientOriginalName();
+        $path = $file->hashName(path: "$structure/blogs/{$blogId}/{$path}");
 
-        $path = $structure . 'blogs/' . $blogId . $path . $filename;
-        //        dd($path);
-
-        Storage::disk('s3')->put($path, file_get_contents($file), Visibility::PUBLIC);
+        Storage::disk('s3')->put($path, $file);
 
         return $path;
     }

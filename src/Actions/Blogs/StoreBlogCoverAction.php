@@ -16,11 +16,9 @@ class StoreBlogCoverAction
         $structure = app()->environment('testing') || app()->environment('local')
             ? 'testing/' : 'production/';
 
-        $filename = uniqid() . '_' . $file->getClientOriginalName();
+        $path = $structure . 'blogs/' . $blogId . '/cover-image.' . $file->getClientOriginalExtension();
 
-        $path = $structure . 'blogs/' . $blogId . $path . $filename;
-
-        Storage::disk('s3')->put($path, $newFile, Visibility::PUBLIC);
+        Storage::disk('s3')->put($path, $newFile);
 
         return $path;
     }

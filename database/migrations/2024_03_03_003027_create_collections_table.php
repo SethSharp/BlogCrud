@@ -12,10 +12,10 @@ return new class() extends Migration {
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('collections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('blog_id')->nullable();
-            $table->string('path');
+            $table->string('title');
+            $table->string('description');
             $table->timestamps();
         });
     }
