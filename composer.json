@@ -1,6 +1,5 @@
 {
   "name": "sethsharp/blog-crud",
-  "version": "1.0.0",
   "description": "A blog CRUD package",
   "license": "MIT",
   "authors": [

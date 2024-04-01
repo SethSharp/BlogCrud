@@ -32,7 +32,6 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/vendor/carbonphp/carbon-doctrine-types" />
-      <path value="$PROJECT_DIR$/vendor/spatie/laravel-package-tools" />
       <path value="$PROJECT_DIR$/vendor/intervention/gif" />
       <path value="$PROJECT_DIR$/vendor/nette/utils" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
