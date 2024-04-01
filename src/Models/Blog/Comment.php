@@ -7,7 +7,7 @@ use SethSharp\BlogCrud\Models\Iam\User;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Database\Factories\Domain\Blog\Models\CommentFactory;
+use SethSharp\BlogCrud\Database\Factories\Domain\Blog\Models\CommentFactory;
 
 class Comment extends Model
 {

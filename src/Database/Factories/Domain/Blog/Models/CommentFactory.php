@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories\Domain\Blog\Models;
+namespace SethSharp\BlogCrud\Database\Factories\Domain\Blog\Models;
 
-use App\Domain\Iam\Models\User;
-use App\Domain\Blog\Models\Comment;
+use SethSharp\BlogCrud\Models\Iam\User;
+use SethSharp\BlogCrud\Models\Blog\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CommentFactory extends Factory

@@ -25,7 +25,7 @@ class UpdateBlogRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
-                Rule::unique(\App\Domain\Blog\Models\Blog::class, 'title')->ignore($this->route('blog')->id),
+                Rule::unique(Blog::class, 'title')->ignore($this->route('blog')->id),
             ],
             'collection_id' => [
                 'nullable',

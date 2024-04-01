@@ -16,7 +16,10 @@
   ],
   "require": {
     "php": "^8.2",
-    "codinglabsau/laravel-roles": "^2.4"
+    "codinglabsau/laravel-roles": "^2.4",
+    "laravel/slack-notification-channel": "^3.2",
+    "intervention/image-laravel": "^1.2",
+    "aws/aws-sdk-php": "^3.298"
   },
   "autoload": {
     "psr-4": {

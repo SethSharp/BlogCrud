@@ -3,7 +3,7 @@
 namespace SethSharp\BlogCrud\Requests\Blogs;
 
 use Illuminate\Validation\Rule;
-use App\Domain\Blog\Models\Blog;
+use SethSharp\BlogCrud\Models\Blog\Blog;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreBlogImageRequest extends FormRequest

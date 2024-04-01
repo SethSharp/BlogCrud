@@ -12,9 +12,9 @@ use SethSharp\BlogCrud\Support\Cache\CacheKeys;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use SethSharp\BlogCrud\Database\Factories\BlogFactory;
 use SethSharp\BlogCrud\Support\Editor\Nodes\EditorNodes;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use SethSharp\BlogCrud\Database\Factories\Domain\Blog\Models\BlogFactory;
 
 class Blog extends Model
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace SethSharp\BlogCrud\Database\Factories;
+namespace SethSharp\BlogCrud\Database\Factories\Domain\Blog\Models;
 
 use Illuminate\Support\Str;
 use SethSharp\BlogCrud\Models\Iam\User;

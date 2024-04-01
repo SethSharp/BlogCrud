@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Factories\Domain\Blog\Models;
+namespace SethSharp\BlogCrud\Database\Factories\Domain\Blog\Models;
 
-use App\Domain\Blog\Models\Tag;
+use SethSharp\BlogCrud\Models\Blog\Tag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TagFactory extends Factory

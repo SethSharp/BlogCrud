@@ -4,9 +4,9 @@ namespace SethSharp\BlogCrud\Models\Blog;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Database\Factories\Domain\Blog\Models\TagFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use SethSharp\BlogCrud\Database\Factories\Domain\Blog\Models\TagFactory;
 
 class Tag extends Model
 {
