@@ -19,7 +19,7 @@ class BlogFactory extends Factory
 
         return [
             'author_id' => User::factory()->create()->id,
-            'cover_image' => config('app.cloudfront_url') . $this->getRandomCover(),
+            'cover_image' => $this->getRandomCover(),
             'is_draft' => false,
             'title' => $name,
             'slug' => $slug,
