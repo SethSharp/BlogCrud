@@ -2,19 +2,23 @@
 
 namespace SethSharp\BlogCrud\Models\Blog;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use SethSharp\BlogCrud\Models\Iam\User;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use SethSharp\BlogCrud\Support\Cache\CacheKeys;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use SethSharp\BlogCrud\Database\Factories\BlogFactory;
 use SethSharp\BlogCrud\Support\Editor\Nodes\EditorNodes;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Blog extends Model
 {
+    use HasFactory;
     use SoftDeletes;
 
     protected $guarded = [];
@@ -24,6 +28,11 @@ class Blog extends Model
         'published_at' => 'datetime'
     ];
 
+    protected static function newFactory()
+    {
+        return new BlogFactory();
+    }
+
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
@@ -31,7 +40,7 @@ class Blog extends Model
 
     public function comments(): BelongsToMany
     {
-        return $this->belongsToMany(\SethSharp\BlogCrud\Models\Blog\Comment::class, 'blog_comment', 'blog_id', 'comment_id')
+        return $this->belongsToMany(Comment::class, 'blog_comment', 'blog_id', 'comment_id')
             ->withTimestamps();
     }
 
@@ -100,5 +109,12 @@ class Blog extends Model
     public function isDraft(): bool
     {
         return $this->is_draft;
+    }
+
+    public function cover(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => $this?->cover_image ? Storage::disk('s3')->url($this->cover_image) : null
+        );
     }
 }

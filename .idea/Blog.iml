@@ -2,10 +2,8 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/database/factories" isTestSource="false" packagePrefix="SethSharp\BlogCrud\Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="SethSharp\BlogCrud\" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Database/Factories" isTestSource="false" packagePrefix="SethSharp\BlogCrud\Database\Factories\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/carbonphp/carbon-doctrine-types" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/codinglabsau/laravel-roles" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />

@@ -13,7 +13,7 @@ class StoreFileAction
         $structure = app()->environment('testing') || app()->environment('local')
             ? 'testing' : 'production';
 
-        $path = $file->hashName(path: "$structure/blogs/{$blogId}/{$path}");
+        $path = $file->hashName(path: "$structure/blogs/{$blogId}{$path}");
 
         Storage::disk('s3')->put($path, $file);
 

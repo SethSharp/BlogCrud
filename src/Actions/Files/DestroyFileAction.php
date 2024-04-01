@@ -3,7 +3,7 @@
 namespace SethSharp\BlogCrud\Actions\Files;
 
 use Exception;
-use App\Domain\File\Models\File;
+use SethSharp\BlogCrud\Models\File;
 use Illuminate\Support\Facades\Storage;
 
 class DestroyFileAction
