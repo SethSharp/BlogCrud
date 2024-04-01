@@ -1,9 +1,7 @@
 <?php
 
-namespace Sethsharp\BlogCrud;
+namespace SethSharp\BlogCrud;
 
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class BlogServiceProvider extends ServiceProvider
@@ -12,6 +10,6 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../database/migrations/' => database_path('migrations')
-        ], 'blog-migrations');
+        ], 'blog-crud-migrations');
     }
 }

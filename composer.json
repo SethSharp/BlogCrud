@@ -16,15 +16,24 @@
   ],
   "require": {
     "php": "^8.2",
+    "illuminate/support": "^10.0|^11.0",
     "codinglabsau/laravel-roles": "^2.4",
     "laravel/slack-notification-channel": "^3.2",
     "intervention/image-laravel": "^1.2",
-    "aws/aws-sdk-php": "^3.298"
+    "aws/aws-sdk-php": "^3.298",
+    "spatie/laravel-package-tools": "^1.14.1"
   },
   "autoload": {
     "psr-4": {
       "SethSharp\\BlogCrud\\": "src",
       "SethSharp\\BlogCrud\\Database\\Factories\\": "src/Database/Factories"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "SethSharp\\BlogCrud\\BlogServiceProvider"
+      ]
     }
   }
 }
