@@ -23,7 +23,10 @@ class Blog extends Model
 
     protected $guarded = [];
 
-    protected $appends = ['cover'];
+    protected $appends = [
+        'cover',
+        'published_at_for_humans'
+    ];
 
     protected $casts = [
         'is_draft' => 'bool',
@@ -117,6 +120,13 @@ class Blog extends Model
     {
         return Attribute::make(
             get: fn() => $this?->cover_image ? Storage::disk('s3')->url($this->cover_image) : null
+        );
+    }
+
+    public function publishedAtForHumans(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => $this?->published_at ? $this->published_at->diffForHumans() : 'not published yet'
         );
     }
 }
