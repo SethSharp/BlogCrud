@@ -58,8 +58,6 @@ So ensure that your AWS credentials are properly configured, specifically this a
 ],
 ```
 
-**Slack Notifications**
-
 ## Usage
 It is encouraged that you explore this package, it is very straight forward and simple so it is easy to integrate what it has to offer for your use case.
 As the logic you implement to use Actions & Requests may be different to others, as well as other practises.
@@ -89,6 +87,27 @@ class UpdateBlogController extends Controller
 ```
 This is an example `UpdateBlogController`, using all the files from the package; `Blog`, `UpdateBlogRequest` & `UpdateBlogAction`.
 Reading each of these files will ive you an understanding of what they expect - so its up to you to ensure you pass the correct information.
+
+### Booting Policies
+This package contains 3 policies; Blog, Tag and Collection Policies. Each needing to be booted into your project for proper use
+
+```php
+use SethSharp\BlogCrud\Models\Blog\Tag;
+use SethSharp\BlogCrud\Models\Blog\Blog;
+use SethSharp\BlogCrud\Policies\TagPolicy;
+use SethSharp\BlogCrud\Policies\BlogPolicy;
+use SethSharp\BlogCrud\Models\Blog\Collection;
+use SethSharp\BlogCrud\Policies\CollectionPolicy;
+
+// the rest of your provider
+
+public function boot()
+{
+    Gate::policy(Blog::class, BlogPolicy::class);
+    Gate::policy(Tag::class, TagPolicy::class);
+    Gate::policy(Collection::class, CollectionPolicy::class);
+}
+```
 
 ### Tips
 If you wanted to add another column such as `publish_at` to define when to publish the blog through a console command, you just need to define this
