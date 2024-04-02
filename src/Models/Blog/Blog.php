@@ -23,6 +23,8 @@ class Blog extends Model
 
     protected $guarded = [];
 
+    protected $appends = ['cover'];
+
     protected $casts = [
         'is_draft' => 'bool',
         'published_at' => 'datetime'
