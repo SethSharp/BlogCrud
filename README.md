@@ -1,3 +1,5 @@
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/sethsharp/blog-crud.svg?style=flat-square)](https://packagist.org/packages/sethsharp/blog-crud)
+
 # Blog
 A fully develop Blog CRUD package that allows you to manage blogs, using Blog content managing meta data with Tags & Collections.
 
