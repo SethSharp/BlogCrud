@@ -3,7 +3,6 @@
 namespace SethSharp\BlogCrud\Models\Blog;
 
 use Illuminate\Database\Eloquent\Model;
-use SethSharp\BlogCrud\Models\Iam\User;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -22,11 +21,11 @@ class Comment extends Model
 
     public function blogs(): BelongsToMany
     {
-        return $this->belongsToMany(Blog::class, 'blog_comment', 'comment_id', 'blog_id');
+        return $this->belongsToMany(config('blog-crud.models.blog.blog'), 'blog_comment', 'comment_id', 'blog_id');
     }
 
     public function user(): HasOne
     {
-        return $this->hasOne(User::class, 'id');
+        return $this->hasOne(config('blog-crud.models.iam.user'), 'id');
     }
 }
