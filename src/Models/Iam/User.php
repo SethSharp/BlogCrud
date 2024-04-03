@@ -4,8 +4,6 @@ namespace SethSharp\BlogCrud\Models\Iam;
 
 use Codinglabs\Roles\HasRoles;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Model;
-use SethSharp\BlogCrud\Models\Blog\Blog;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -34,17 +32,17 @@ class User extends Authenticatable
 
     public function blog(): HasMany
     {
-        return $this->hasMany(Blog::class);
+        return $this->hasMany(config('blog-crud.models.blog.blog'));
     }
 
     public function comments(): BelongsToMany
     {
-        return $this->belongsToMany(Comment::class, 'comments')
+        return $this->belongsToMany(config('blog-crud.models.blog.comment'), 'comments')
             ->withTimestamps();
     }
 
     public function likedBlogs(): BelongsToMany
     {
-        return $this->belongsToMany(Blog::class, 'blog_likes', 'user_id', 'blog_id');
+        return $this->belongsToMany(config('blog-crud.models.blog.blog'), 'blog_likes', 'user_id', 'blog_id');
     }
 }

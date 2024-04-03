@@ -20,7 +20,7 @@ class Collection extends Model
 
     public function blogs(): BelongsToMany
     {
-        return $this->belongsToMany(Blog::class)
+        return $this->belongsToMany(config('blog-crud.models.blog.blog'))
             ->withPivot('order')
             ->withTimestamps();
     }

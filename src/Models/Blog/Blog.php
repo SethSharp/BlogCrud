@@ -5,7 +5,6 @@ namespace SethSharp\BlogCrud\Models\Blog;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-use SethSharp\BlogCrud\Models\Iam\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use SethSharp\BlogCrud\Support\Cache\CacheKeys;
@@ -40,29 +39,29 @@ class Blog extends Model
 
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return $this->belongsTo(config('blog-crud.models.iam.user'), 'author_id');
     }
 
     public function comments(): BelongsToMany
     {
-        return $this->belongsToMany(Comment::class, 'blog_comment', 'blog_id', 'comment_id')
+        return $this->belongsToMany(config('blog-crud.models.blog.comment'), 'blog_comment', 'blog_id', 'comment_id')
             ->withTimestamps();
     }
 
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'blog_likes', 'blog_id', 'user_id')
+        return $this->belongsToMany(config('blog-crud.models.iam.user'), 'blog_likes', 'blog_id', 'user_id')
             ->withTimestamps();
     }
 
     public function collection(): BelongsTo
     {
-        return $this->belongsTo(\SethSharp\BlogCrud\Models\Blog\Collection::class);
+        return $this->belongsTo(config('blog-crud.models.blog.collection'));
     }
 
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(\SethSharp\BlogCrud\Models\Blog\Tag::class, 'blog_tag')
+        return $this->belongsToMany(config('blog-crud.models.blog.tag'), 'blog_tag')
             ->withTimestamps();
     }
 

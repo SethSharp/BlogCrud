@@ -22,7 +22,7 @@ class Tag extends Model
 
     public function blogs(): BelongsToMany
     {
-        return $this->belongsToMany(Blog::class, 'blog_tag')
+        return $this->belongsToMany(config('blog-crud.models.blog.blog'), 'blog_tag')
             ->withTimestamps();
     }
 }

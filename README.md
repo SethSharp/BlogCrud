@@ -36,9 +36,17 @@ Add to your `config/app.php`
 ]
 ```
 
-### Publishing Migrations
+### Publishing the Migrations
 Then to publish the migrations:
 `php artisan vendor:publish --tag="blog-crud-migrations"`
+
+### Publishing the Config File
+The config file contains package reliant values. When published that can be edited to suit the project and your coding style.
+`php artisan vendor:publish --tag="blog-crud-config"`
+Things that you can override include:
+1. Models: Allows you to create your own models - by replacing it is automatically injected into relationships within other package models
+2. Image Driver: We use the laravel-intervention library for image resizing - this defaults to `gd()`, but `imagick()` is available
+3. Bucket Paths: Allows you to specify your own paths for local & production environment in your S3 bucket
 
 ### Other Requirements
 **File System**

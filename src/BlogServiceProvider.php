@@ -11,5 +11,9 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../database/migrations/' => database_path('migrations')
         ], 'blog-crud-migrations');
+
+        $this->publishes([
+            __DIR__ . '/../config/' => config_path('blog-crud.php')
+        ], 'blog-crud-config');
     }
 }
