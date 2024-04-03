@@ -10,7 +10,7 @@ class StoreFileAction
     public function __invoke(UploadedFile $file, int $blogId, string $path = '/content/'): string
     {
         $structure = app()->environment('testing') || app()->environment('local')
-            ? config('blog-crud.buckets.local') : config('blog-crud.bucket_paths.production');
+            ? config('blog-crud.bucket_paths.local') : config('blog-crud.bucket_paths.production');
 
         $path = $file->hashName(path: "{$structure}blogs/{$blogId}{$path}");
 

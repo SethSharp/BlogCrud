@@ -12,7 +12,7 @@ class StoreBlogCoverAction
         $newFile = config('blog-crud.image_driver')->read($file)->scale(500, 500)->encode();
 
         $structure = app()->environment('testing') || app()->environment('local')
-            ? config('blog-crud.buckets.local') : config('blog-crud.bucket_paths.production');
+            ? config('blog-crud.bucket_paths.local') : config('blog-crud.bucket_paths.production');
 
         $path = $structure . 'blogs/' . $blogId . '/cover-image.' . $file->getClientOriginalExtension();
 

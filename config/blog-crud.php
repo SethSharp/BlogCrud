@@ -1,7 +1,5 @@
 <?php
 
-use Intervention\Image\ImageManager;
-
 return [
     /*
     |--------------------------------------------------------------------------
@@ -23,7 +21,7 @@ return [
     |
     | Allows the option for users to define their own driver
     */
-    'image_driver' => ImageManager::gd(),
+    'image_driver' => \Intervention\Image\ImageManager::gd(),
 
     /*
     |--------------------------------------------------------------------------

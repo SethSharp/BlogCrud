@@ -13,7 +13,7 @@ class BlogServiceProvider extends ServiceProvider
         ], 'blog-crud-migrations');
 
         $this->publishes([
-            __DIR__ . '/../config/' => config_path('blog-crud.php')
+            __DIR__ . '/../config/blog-crud.php' => config_path('blog-crud.php')
         ], 'blog-crud-config');
     }
 }
