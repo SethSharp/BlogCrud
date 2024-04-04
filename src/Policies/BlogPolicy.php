@@ -2,8 +2,8 @@
 
 namespace SethSharp\BlogCrud\Policies;
 
-use SethSharp\BlogCrud\Models\Blog\Blog;
 use SethSharp\BlogCrud\Models\Iam\User;
+use SethSharp\BlogCrud\Models\Blog\Blog;
 
 class BlogPolicy
 {
@@ -24,6 +24,21 @@ class BlogPolicy
     public function delete(User $user): bool
     {
         return $user->hasRole(User::ROLE_ADMIN);
+    }
+
+    public function show(?User $user, Blog $blog): bool
+    {
+        if (! $blog->is_published) {
+            if (auth()->check()) {
+                if (! auth()->user()->hasRole([User::ROLE_ADMIN])) {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public function update(User $user, Blog $blog): bool

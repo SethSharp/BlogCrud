@@ -20,7 +20,6 @@ class BlogFactory extends Factory
         return [
             'author_id' => User::factory()->create()->id,
             'cover_image' => $this->getRandomCover(),
-            'is_draft' => false,
             'title' => $name,
             'slug' => $slug,
             'meta_title' => fake()->text(20),
@@ -44,7 +43,7 @@ class BlogFactory extends Factory
     {
         return $this->afterCreating(function ($blog) {
             $blog->update([
-                'is_draft' => true
+                'published_at' => null
             ]);
         });
     }
@@ -53,7 +52,7 @@ class BlogFactory extends Factory
     {
         return $this->afterCreating(function ($blog) {
             $blog->update([
-                'is_draft' => false
+                'published_at' => now()
             ]);
         });
     }

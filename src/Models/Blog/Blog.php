@@ -24,11 +24,11 @@ class Blog extends Model
 
     protected $appends = [
         'cover',
+        'is_published',
         'published_at_for_humans'
     ];
 
     protected $casts = [
-        'is_draft' => 'bool',
         'published_at' => 'datetime'
     ];
 
@@ -67,12 +67,12 @@ class Blog extends Model
 
     public function scopePublished(Builder $query): Builder
     {
-        return $query->where('is_draft', false);
+        return $query->whereNotNull('published_at');
     }
 
     public function scopeNotPublished(Builder $query): Builder
     {
-        return $query->where('is_draft', true);
+        return $query->whereNull('published_at');
     }
 
     public function getContent(): string
@@ -110,22 +110,24 @@ class Blog extends Model
         });
     }
 
-    public function isDraft(): bool
-    {
-        return $this->is_draft;
-    }
-
     public function cover(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this?->cover_image ? Storage::disk('s3')->url($this->cover_image) : null
+            get: fn () => $this?->cover_image ? Storage::disk('s3')->url($this->cover_image) : null
+        );
+    }
+
+    public function isPublished(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => ! is_null($this->published_at)
         );
     }
 
     public function publishedAtForHumans(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this?->published_at ? $this->published_at->diffForHumans() : 'not published yet'
+            get: fn () => $this?->published_at ? $this->published_at->diffForHumans() : 'not published yet'
         );
     }
 }

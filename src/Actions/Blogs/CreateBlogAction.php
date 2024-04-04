@@ -13,7 +13,7 @@ class CreateBlogAction
             'slug' => 'this-is-my-blog',
             'title' => 'This is my blog!',
             'content' => '',
-            'is_draft' => true,
+            'published_at' => null,
         ]);
     }
 }
