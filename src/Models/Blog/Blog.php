@@ -113,21 +113,21 @@ class Blog extends Model
     public function cover(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this?->cover_image ? Storage::disk('s3')->url($this->cover_image) : null
+            get: fn () => $this?->cover_image ? Storage::disk('s3')->url($this->cover_image) : null
         );
     }
 
     public function isPublished(): Attribute
     {
         return Attribute::make(
-            get: fn() => (bool)$this->published_at
+            get: fn () => ! is_null($this->published_at)
         );
     }
 
     public function publishedAtForHumans(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this?->published_at ? $this->published_at->diffForHumans() : 'not published yet'
+            get: fn () => $this?->published_at ? $this->published_at->diffForHumans() : 'not published yet'
         );
     }
 }

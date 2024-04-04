@@ -62,8 +62,8 @@ class UpdateBlogRequest extends FormRequest
                 'string',
             ],
             'is_draft' => [
-                'required',
-                'boolean'
+                'boolean',
+                'exclude'
             ]
         ];
     }
