@@ -26,6 +26,11 @@ class BlogPolicy
         return $user->hasRole(User::ROLE_ADMIN);
     }
 
+    public function restore(User $user): bool
+    {
+        return $user->hasRole(User::ROLE_ADMIN);
+    }
+
     public function show(?User $user, Blog $blog): bool
     {
         if (! $blog->is_published) {
