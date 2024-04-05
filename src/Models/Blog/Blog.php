@@ -72,7 +72,14 @@ class Blog extends Model
 
     public function scopeNotPublished(Builder $query): Builder
     {
-        return $query->whereNull('published_at');
+        return $query->whereNull('published_at')
+            ->whereNull('deleted_at');
+    }
+
+    public function scopeDeleted(Builder $query): Builder
+    {
+        return $query->whereNotNull('deleted_at')
+            ->withTrashed();
     }
 
     public function getContent(): string
