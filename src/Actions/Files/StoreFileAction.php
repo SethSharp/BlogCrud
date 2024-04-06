@@ -12,9 +12,11 @@ class StoreFileAction
         $structure = app()->environment('testing') || app()->environment('local')
             ? config('blog-crud.bucket_paths.local') : config('blog-crud.bucket_paths.production');
 
-        $path = $file->hashName(path: "{$structure}blogs/{$blogId}{$path}");
+        $filename = uniqid() . '_' . $file->getClientOriginalName();
 
-        Storage::disk('s3')->put($path, $file);
+        $path = $structure . 'blogs/' . $blogId . $path . $filename;
+
+        Storage::disk('s3')->put($path, file_get_contents($file));
 
         return $path;
     }
