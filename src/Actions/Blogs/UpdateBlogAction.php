@@ -30,13 +30,15 @@ class UpdateBlogAction
             $blog->tags()->sync($tags);
         }
 
-        if (is_null($updateBlogRequest->input('collection_id')) && $blog->collection_id) {
-            app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
+        if (! $updateBlogRequest->has('collection_id')) {
+            if ($blog->collection_id) {
+                app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
+            }
 
             $blog->update([
                 'collection_id' => null
             ]);
-        } elseif ($updateBlogRequest->input('collection_id') && is_null($blog->collection_id)) {
+        } elseif ($updateBlogRequest->has('collection_id')) {
             $collection = $updateBlogRequest->input('collection_id');
 
             app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection)->first());
