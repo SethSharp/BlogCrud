@@ -14,7 +14,9 @@ class StoreBlogCoverAction
         $structure = app()->environment('testing') || app()->environment('local')
             ? config('blog-crud.bucket_paths.local') : config('blog-crud.bucket_paths.production');
 
-        $path = $structure . 'blogs/' . $blogId . '/cover-image.' . $file->getClientOriginalExtension();
+        $filename = uniqid() . '_' . $file->getClientOriginalName();
+
+        $path = $structure . 'blogs/' . $blogId . '/cover-images/' . $filename;
 
         Storage::disk('s3')->put($path, $newFile);
 
