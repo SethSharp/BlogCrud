@@ -45,10 +45,13 @@ class UpdateBlogAction
         } else {
             $collection = $updateBlogRequest->input('collection_id');
 
-            if ($blog->collection_id && $collection !== $blog->collection_id) {
+            if ($collection !== $blog->collection_id) {
                 // We are providing a collection_id when one already existed
                 app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
-                app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection)->first());
+
+                if (! is_null($collection)) {
+                    app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection)->first());
+                }
             } else if (is_null($blog->collection_id)) {
                 // We are providing a collection for the first time
                 app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection)->first());
