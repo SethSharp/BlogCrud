@@ -13,68 +13,69 @@ class UpdateBlogAction
 {
     public function __invoke(Blog $blog, UpdateBlogRequest $updateBlogRequest): Blog
     {
+        // setup slug based on provided input
         if ($updateBlogRequest->has('slug')) {
             $slug = Str::slug($updateBlogRequest->input('slug'));
         } else {
             $slug = Str::slug($updateBlogRequest->input('title'));
         }
 
-        $blog->update([
-            ...$updateBlogRequest->validated(),
-            'slug' => $slug,
-        ]);
-
+        // attach tags
         if ($tags = $updateBlogRequest->input('tags')) {
             $tags = collect($tags)->pluck('id');
-
             $blog->tags()->sync($tags);
         }
 
+        // setting published_at logic
+        $publishedAt = $blog->published_at;
+        if ($updateBlogRequest->input('is_draft')) {
+            $publishedAt = null;
+        } else {
+            if (! $blog->published_at) {
+                $publishedAt = now();
+            }
+        }
+
+        // setting collection logic
+        $collection = null;
         if (! $updateBlogRequest->has('collection_id')) {
             if ($blog->collection_id) {
                 app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
             }
-
-            $blog->update([
-                'collection_id' => null
-            ]);
-        } elseif ($updateBlogRequest->has('collection_id')) {
+        } else {
             $collection = $updateBlogRequest->input('collection_id');
 
-            app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection)->first());
-
-            $blog->update([
-                'collection_id' => $collection
-            ]);
+            if ($blog->collection_id && $collection !== $blog->collection_id) {
+                // We are providing a collection_id when one already existed
+                app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
+                app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection)->first());
+            } else if (is_null($blog->collection_id)) {
+                // We are providing a collection for the first time
+                app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection)->first());
+            }
         }
 
+        // upload cover image
+        $coverImagePath = null;
         if ($coverImage = $updateBlogRequest->file('cover_image')) {
             $coverImagePath = app(StoreBlogCoverAction::class)($coverImage, $blog->id);
-
-            $blog->update([
-                'cover_image' => $coverImagePath
-            ]);
         }
+
+        // dynamically update model with validated data
+        // along with other calculated information
+        $blog->update([
+            ...$updateBlogRequest->validated(),
+            'slug' => $slug,
+            'cover_image' => $coverImagePath,
+            'published_at' => $publishedAt,
+            'collection_id' => $collection
+        ]);
 
         $blog = app(CleanBlogContentAction::class)($blog);
 
         Cache::forget(CacheKeys::renderedBlogContent($blog));
 
         $blog->render();
-
-        if ($updateBlogRequest->has('is_draft')) {
-            if ($updateBlogRequest->input('is_draft')) {
-                $blog->update([
-                    'published_at' => null
-                ]);
-            } else {
-                if (! $blog->published_at) {
-                    $blog->update([
-                        'published_at' => now()
-                    ]);
-                }
-            }
-        }
 
         return $blog;
     }
