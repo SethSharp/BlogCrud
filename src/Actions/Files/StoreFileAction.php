@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Storage;
 
 class StoreFileAction
 {
+    /**
+     * Stores an Uploaded file to a S3 bucket
+     * @param UploadedFile $file
+     * @param int $blogId
+     * @param string $path
+     * @return string
+     */
     public function __invoke(UploadedFile $file, int $blogId, string $path = '/content/'): string
     {
         $structure = app()->environment('testing') || app()->environment('local')

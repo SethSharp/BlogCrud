@@ -7,6 +7,13 @@ use SethSharp\BlogCrud\Requests\Collection\UpdateCollectionRequest;
 
 class UpdateCollectionAction
 {
+    /**
+     * Updates a Collection model & order of attached blogs
+     *
+     * @param UpdateCollectionRequest $updateCollectionRequest
+     * @param Collection $collection
+     * @return Collection
+     */
     public function __invoke(UpdateCollectionRequest $updateCollectionRequest, Collection $collection): Collection
     {
         $collection->update([

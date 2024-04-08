@@ -6,6 +6,11 @@ use SethSharp\BlogCrud\Models\Blog\Blog;
 
 class CreateBlogAction
 {
+    /**
+     * Creates a base Blog model for editing
+     *
+     * @return Blog
+     */
     public function __invoke(): Blog
     {
         return Blog::create([

@@ -8,6 +8,14 @@ use SethSharp\BlogCrud\Models\File;
 
 class CleanBlogContentAction
 {
+    /**
+     * Some things it does:
+     * - Adds height styling to images based on height variable provided eg; <img height="322" => <img style="height: 322px"
+     * - Any files that exist in the DB that do not exist in the content are removed from S3 and DB levels
+     *
+     * @param Blog $blog
+     * @return Blog
+     */
     public function __invoke(Blog $blog): Blog
     {
         // Replace height attribute with style attribute

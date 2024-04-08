@@ -7,6 +7,12 @@ use SethSharp\BlogCrud\Requests\Collection\StoreCollectionRequest;
 
 class StoreCollectionAction
 {
+    /**
+     * Stores a new Collection model
+     *
+     * @param StoreCollectionRequest $storeCollectionRequest
+     * @return Collection
+     */
     public function __invoke(StoreCollectionRequest $storeCollectionRequest): Collection
     {
         return Collection::create([

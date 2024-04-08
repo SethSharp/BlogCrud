@@ -7,6 +7,13 @@ use SethSharp\BlogCrud\Models\Blog\Collection;
 
 class AddBlogToCollectionAction
 {
+    /**
+     * Adds Blog to Collection & adds order pivot
+     *
+     * @param Blog $blog
+     * @param Collection $collection
+     * @return void
+     */
     public function __invoke(Blog $blog, Collection $collection): void
     {
         $order = $collection->blogs()->count();

@@ -7,6 +7,14 @@ use SethSharp\BlogCrud\Models\Blog\Collection;
 
 class RemoveBlogFromCollectionAction
 {
+    /**
+     * Removes a Blog from a collection by removing the pivot & re-ordering other pivot entries
+     *
+     * @param Blog $blogToRemove
+     * @param Collection $oldCollection
+     * @return void
+     * @throws \Exception
+     */
     public function __invoke(Blog $blogToRemove, Collection $oldCollection): void
     {
         // remove from pivot

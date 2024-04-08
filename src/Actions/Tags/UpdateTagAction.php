@@ -8,6 +8,13 @@ use SethSharp\BlogCrud\Requests\Tags\UpdateTagRequest;
 
 class UpdateTagAction
 {
+    /**
+     * Updates a Tag model
+     *
+     * @param Tag $tag
+     * @param UpdateTagRequest $updateTagRequest
+     * @return Tag
+     */
     public function __invoke(Tag $tag, UpdateTagRequest $updateTagRequest): Tag
     {
         $tag->update([

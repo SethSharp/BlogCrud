@@ -11,6 +11,13 @@ use SethSharp\BlogCrud\Support\Cache\CacheKeys;
 
 class UpdateBlogAction
 {
+    /**
+     * Updates a Blog Model
+     *
+     * @param Blog $blog
+     * @param UpdateBlogRequest $updateBlogRequest
+     * @return Blog
+     */
     public function __invoke(Blog $blog, UpdateBlogRequest $updateBlogRequest): Blog
     {
         // setup slug based on provided input
