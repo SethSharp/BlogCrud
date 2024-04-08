@@ -37,24 +37,26 @@ class UpdateBlogAction
         }
 
         // setting collection logic
-        $collection = null;
+        $collection_id = null;
         if (! $updateBlogRequest->has('collection_id')) {
             if ($blog->collection_id) {
                 app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
             }
         } else {
-            $collection = $updateBlogRequest->input('collection_id');
+            // we have a collection_id
+            $collection_id = $updateBlogRequest->input('collection_id');
 
-            if ($collection !== $blog->collection_id) {
+            if (! is_null($collection_id)) {
                 // We are providing a collection_id when one already existed
-                app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
-
-                if (! is_null($collection)) {
-                    app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection)->first());
+                if ($blog->collection_id) {
+                    app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
                 }
-            } else if (is_null($blog->collection_id)) {
-                // We are providing a collection for the first time
-                app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection)->first());
+
+                if (! is_null($collection_id)) {
+                    app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection_id)->first());
+                }
+            } else {
+                app(RemoveBlogFromCollectionAction::class)($blog,  Collection::whereId($blog->collection_id)->first());
             }
         }
 
@@ -71,7 +73,7 @@ class UpdateBlogAction
             'slug' => $slug,
             'cover_image' => $coverImagePath,
             'published_at' => $publishedAt,
-            'collection_id' => $collection
+            'collection_id' => $collection_id
         ]);
 
         $blog = app(CleanBlogContentAction::class)($blog);
