@@ -62,7 +62,7 @@ class BlogFactory extends Factory
         return $this->coverImages()[array_rand($this->coverImages())];
     }
 
-    private function coverImages(): array
+    public static function coverImages(): array
     {
         return [
             'seeding/desk-1.avif',

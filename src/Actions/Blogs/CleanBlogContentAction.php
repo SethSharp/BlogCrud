@@ -18,21 +18,25 @@ class CleanBlogContentAction
      */
     public function __invoke(Blog $blog): Blog
     {
-        // Replace height attribute with style attribute
+        /**
+         * Any files with the height attribute is converted to a style
+         */
         $newContent = preg_replace('/height="(\d+)"/', 'style="height: $1px"', $blog->content);
 
         $blog->update([
             'content' => $newContent
         ]);
 
-        // Sometimes a file may be deleted within the editor, this finds all the file ids and ensures they are all exist
-        // otherwise delete the unused ones (s3 and entry)
+        /**
+         * Files may be removed from the editor, this searches for the existing file ids (fileid="id") within the content
+         * With this we get all the files attached to the blog - looping over each one to see if the file exists within
+         * the content. If not, we destroy the file at the S3 and DB level
+         */
         $matches = [];
         preg_match_all('/fileid="([^"]+)"/', $blog->content, $matches);
 
         $fileIds = $matches[1];
 
-        // recent files that need replacing
         File::where('blog_id', $blog->id)
             ->get()
             ->each(function (File $file) use ($fileIds) {

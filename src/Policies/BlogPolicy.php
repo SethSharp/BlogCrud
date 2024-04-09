@@ -35,7 +35,7 @@ class BlogPolicy
     {
         if (! $blog->is_published) {
             if (auth()->check()) {
-                if (! auth()->user()->hasRole([User::ROLE_ADMIN])) {
+                if (! $user->hasRole([User::ROLE_ADMIN])) {
                     return false;
                 }
             } else {
