@@ -1,4 +1,5 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sethsharp/blog-crud.svg?style=flat-square)](https://packagist.org/packages/sethsharp/blog-crud)
+[![Total Downloads](https://img.shields.io/packagist/dt/sethsharp/blog-crud.svg?style=flat-square)](https://packagist.org/packages/sethsharp/blog-crud)
 
 # Blog
 A fully developed Laravel Blog CRUD package that allows you to manage blogs, tags & collections.
