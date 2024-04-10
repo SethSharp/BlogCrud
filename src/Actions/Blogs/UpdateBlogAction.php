@@ -2,12 +2,12 @@
 
 namespace SethSharp\BlogCrud\Actions\Blogs;
 
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cache;
 use SethSharp\BlogCrud\Models\Blog\Blog;
 use SethSharp\BlogCrud\Models\Blog\Collection;
-use SethSharp\BlogCrud\Requests\Blogs\UpdateBlogRequest;
 use SethSharp\BlogCrud\Support\Cache\CacheKeys;
+use SethSharp\BlogCrud\Requests\Blogs\UpdateBlogRequest;
 
 class UpdateBlogAction
 {
