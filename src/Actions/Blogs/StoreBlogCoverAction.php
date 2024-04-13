@@ -4,6 +4,8 @@ namespace SethSharp\BlogCrud\Actions\Blogs;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use SethSharp\BlogCrud\Models\Blog\Blog;
+use SethSharp\BlogCrud\Actions\Files\DeleteS3File;
 
 class StoreBlogCoverAction
 {
@@ -15,7 +17,7 @@ class StoreBlogCoverAction
      * @param string $path
      * @return string
      */
-    public function __invoke(UploadedFile $file, int $blogId, string $path = '/cover-images/'): string
+    public function __invoke(UploadedFile $file, Blog $blog, string $path = '/cover-images/'): string
     {
         $newFile = config('blog-crud.image_driver')->read($file)->scale(500, 500)->encode();
 
@@ -24,9 +26,14 @@ class StoreBlogCoverAction
 
         $filename = uniqid() . '_' . $file->getClientOriginalName();
 
-        $path = $structure . 'blogs/' . $blogId . '/cover-images/' . $filename;
+        $path = $structure . 'blogs/' . $blog->id . '/cover-images/' . $filename;
 
         Storage::disk('s3')->put($path, $newFile);
+
+        // destory previous cover image
+        if ($blog->cover_image) {
+            app(DeleteS3File::class)($blog->cover_image);
+        }
 
         return $path;
     }

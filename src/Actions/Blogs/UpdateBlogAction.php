@@ -76,7 +76,7 @@ class UpdateBlogAction
         // upload cover image
         $coverImagePath = $blog->cover_image;
         if ($coverImage = $updateBlogRequest->file('cover_image')) {
-            $coverImagePath = app(StoreBlogCoverAction::class)($coverImage, $blog->id);
+            $coverImagePath = app(StoreBlogCoverAction::class)($coverImage, $blog);
         }
 
         // dynamically update model with validated data
