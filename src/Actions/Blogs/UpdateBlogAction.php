@@ -45,25 +45,31 @@ class UpdateBlogAction
 
         // setting collection logic
         $collection_id = null;
+        // if we do not have a provided colllection id
+        // either removing or we just haven't provided one
         if (! $updateBlogRequest->has('collection_id')) {
             if ($blog->collection_id) {
                 app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
             }
         } else {
-            // we have a collection_id
+            // we have a collection id provided
+            // we are either replacing or adding a fresh one
             $collection_id = $updateBlogRequest->input('collection_id');
 
-            if (! is_null($collection_id)) {
-                // We are providing a collection_id when one already existed
+            if (is_null($collection_id)) {
+                // check if we aren't just clearing
                 if ($blog->collection_id) {
                     app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
                 }
-
-                if (! is_null($collection_id)) {
-                    app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection_id)->first());
-                }
             } else {
-                app(RemoveBlogFromCollectionAction::class)($blog,  Collection::whereId($blog->collection_id)->first());
+                if (is_null($blog->collection_id)) {
+                    app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection_id)->first());
+                } else {
+                    if ($blog->collection_id !== $collection_id) {
+                        app(RemoveBlogFromCollectionAction::class)($blog, Collection::whereId($blog->collection_id)->first());
+                        app(AddBlogToCollectionAction::class)($blog, Collection::whereId($collection_id)->first());
+                    }
+                }
             }
         }
 
