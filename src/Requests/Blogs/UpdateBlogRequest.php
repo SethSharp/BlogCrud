@@ -36,6 +36,7 @@ class UpdateBlogRequest extends FormRequest
             'slug' => [
                 'nullable',
                 'string',
+                'min:10',
                 Rule::unique(Blog::class, 'slug')->ignore($this->route('blog')->id),
             ],
             'tags' => [
