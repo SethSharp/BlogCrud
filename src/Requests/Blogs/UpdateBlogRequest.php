@@ -25,6 +25,7 @@ class UpdateBlogRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
+                'max:254',
                 Rule::unique(Blog::class, 'title')->ignore($this->route('blog')->id),
             ],
             'collection_id' => [
@@ -37,6 +38,7 @@ class UpdateBlogRequest extends FormRequest
                 'nullable',
                 'string',
                 'min:10',
+                'max:254',
                 Rule::unique(Blog::class, 'slug')->ignore($this->route('blog')->id),
             ],
             'tags' => [
@@ -47,16 +49,19 @@ class UpdateBlogRequest extends FormRequest
                 'nullable',
                 'required_if:is_draft,false',
                 'string',
+                'max:254',
             ],
             'meta_tags' => [
                 'nullable',
                 'required_if:is_draft,false',
                 'string',
+                'max:254',
             ],
             'meta_description' => [
                 'nullable',
                 'required_if:is_draft,false',
                 'string',
+                'max:254',
             ],
             'content' => [
                 'required_if:is_draft,false',

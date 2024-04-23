@@ -21,10 +21,13 @@ class UpdateBlogAction
     public function __invoke(Blog $blog, UpdateBlogRequest $updateBlogRequest): Blog
     {
         // setup slug based on provided input
-        if ($updateBlogRequest->has('slug')) {
-            $slug = Str::slug($updateBlogRequest->input('slug'));
-        } else {
+        $slug = $updateBlogRequest->input('slug');
+        if (is_null($slug)) {
             $slug = Str::slug($updateBlogRequest->input('title'));
+        } else {
+            if (strlen($slug) === 0) {
+                $slug = Str::slug($updateBlogRequest->input('title'));
+            }
         }
 
         // attach tags
