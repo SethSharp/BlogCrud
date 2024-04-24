@@ -13,7 +13,7 @@ class Image extends Node
         return self::$prefix . '-' . self::$tag;
     }
 
-    public static function getReplaceTag(): string
+    public static function getReplacementTag(): string
     {
         return 'img';
     }

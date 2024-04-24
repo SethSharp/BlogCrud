@@ -30,7 +30,7 @@ class StoreBlogCoverAction
 
         Storage::disk('s3')->put($path, $newFile);
 
-        // destory previous cover image
+        // destroy previous cover image
         if ($blog->cover_image) {
             app(DeleteS3File::class)($blog->cover_image);
         }

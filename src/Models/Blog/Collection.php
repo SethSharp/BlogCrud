@@ -32,6 +32,6 @@ class Collection extends Model
 
     public function getBlogOrder(Blog $blog): ?int
     {
-        return $this->blogs()->where('blog_id', $blog->id)?->first()->pivot->order;
+        return $this->blogs()->where('blog_id', $blog->id)->first()?->pivot->order;
     }
 }

@@ -8,4 +8,5 @@ abstract class Node
     protected static string $tag;
 
     abstract public static function buildHtmlTag(): string;
+    abstract public static function getReplacementTag(): string;
 }

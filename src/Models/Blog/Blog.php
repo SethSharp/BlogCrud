@@ -99,7 +99,7 @@ class Blog extends Model
         $result = $this->content;
 
         foreach ($nodes as $node) {
-            $result = str_replace($node::buildHtmlTag(), $node::getReplaceTag(), $result);
+            $result = str_replace($node::buildHtmlTag(), $node::getReplacementTag(), $result);
         }
 
         return $this->cacheResult($result);
@@ -112,9 +112,7 @@ class Blog extends Model
 
     private function cacheResult(string $content): string
     {
-        return Cache::rememberForever(CacheKeys::renderedBlogContent($this), function () use ($content) {
-            return $content;
-        });
+        return Cache::rememberForever(CacheKeys::renderedBlogContent($this), fn () => $content);
     }
 
     public function cover(): Attribute
