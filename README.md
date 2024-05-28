@@ -50,6 +50,8 @@ Things that you can override include:
 2. Image Driver: We use the laravel-intervention library for image resizing - this defaults to `gd()`, but `imagick()` is available
 3. Bucket Paths: Allows you to specify your own paths for S3 buckets in local & production environments
 
+> WARNING: When over writing models in the config you will no longer be able to pass your model to existing actions - as it expects the package models only. This will be fixed in a future release
+
 ### Other Requirements
 **File System**
 This package does rely on AWS S3 logic when it comes to file uploads, via the Blog Cover or the images you can upload within your blog.
