@@ -31,6 +31,6 @@ class Comment extends Model
 
     public function user(): HasOne
     {
-        return $this->hasOne(config('blog-crud.models.iam.user'), 'id');
+        return $this->hasOne(config('blog-crud.models.iam.user'), 'id', 'user_id');
     }
 }

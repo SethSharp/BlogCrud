@@ -25,7 +25,7 @@ class BlogFactory extends Factory
             'meta_title' => fake()->text(20),
             'meta_description' => fake()->text(200),
             'meta_tags' => fake()->text(10),
-            'content' => fake()->text(400),
+            'content' => fake()->text(1000),
             'published_at' => now()
         ];
     }
