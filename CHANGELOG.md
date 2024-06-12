@@ -5,3 +5,4 @@
 
 ## V2.0
 - Moves File to proper location under `Models/Blog/` [Pull Request #3](https://github.com/SethSharp/BlogCrud/pull/3)
+- Add missing size rules in requests [Pull Request #4](https://github.com/SethSharp/BlogCrud/pull/4)
