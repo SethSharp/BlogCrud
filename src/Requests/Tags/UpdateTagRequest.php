@@ -19,6 +19,7 @@ class UpdateTagRequest extends FormRequest
             'name' => [
                 'required',
                 'string',
+                'max:254',
                 Rule::unique(Tag::class, 'name')->ignore($this->route('tag')->id),
             ],
         ];

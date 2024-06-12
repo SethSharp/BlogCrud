@@ -19,6 +19,7 @@ class StoreTagRequest extends FormRequest
             'name' => [
                 'required',
                 'string',
+                'max:254',
                 Rule::unique(Tag::class, 'name'),
             ],
         ];

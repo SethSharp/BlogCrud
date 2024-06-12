@@ -20,11 +20,13 @@ class UpdateCollectionRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
+                'max:254',
                 Rule::unique(Collection::class, 'title')->ignore($this->route('collection')->id),
             ],
             'description' => [
                 'required',
                 'string',
+                'max:254',
             ],
             'blogs' => [
                 'array',
