@@ -1,6 +1,6 @@
 <?php
 
-namespace SethSharp\BlogCrud\Models;
+namespace SethSharp\BlogCrud\Models\Blog;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;

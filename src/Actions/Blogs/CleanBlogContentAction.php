@@ -2,9 +2,9 @@
 
 namespace SethSharp\BlogCrud\Actions\Blogs;
 
-use SethSharp\BlogCrud\Models\File;
-use SethSharp\BlogCrud\Models\Blog\Blog;
 use SethSharp\BlogCrud\Actions\Files\DestroyFileAction;
+use SethSharp\BlogCrud\Models\Blog\Blog;
+use SethSharp\BlogCrud\Models\Blog\File;
 
 class CleanBlogContentAction
 {
