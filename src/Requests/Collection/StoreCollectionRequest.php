@@ -20,11 +20,13 @@ class StoreCollectionRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
+                'max:254',
                 Rule::unique(Collection::class, 'title'),
             ],
             'description' => [
                 'required',
                 'string',
+                'max:254',
             ],
             'blogs' => [
                 'array',
