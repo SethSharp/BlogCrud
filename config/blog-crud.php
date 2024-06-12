@@ -40,7 +40,7 @@ return [
             'tag' => \SethSharp\BlogCrud\Models\Blog\Tag::class,
         ],
         'file' => [
-            'file' => \SethSharp\BlogCrud\Models\File::class,
+            'file' => \SethSharp\BlogCrud\Models\Blog\File::class,
         ],
         'iam' => [
             'user' => \SethSharp\BlogCrud\Models\Iam\User::class,
