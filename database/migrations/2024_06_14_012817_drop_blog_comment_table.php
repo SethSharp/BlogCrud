@@ -10,6 +10,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::drop('blogs_comment');
+        Schema::drop('blog_comment');
     }
 };
