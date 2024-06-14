@@ -7,4 +7,4 @@
 ## V2.0
 - Moves File to proper location under `Models/Blog/` [Pull Request #3](https://github.com/SethSharp/BlogCrud/pull/3)
 - Add missing size rules in requests [Pull Request #4](https://github.com/SethSharp/BlogCrud/pull/4)
-- Changes how the relationship & tables work with Comments [Pull Request #5](https://github.com/SethSharp/BlogCrud/pull/5)
+- Change how Comment model relationships and tables work [Pull Request #5](https://github.com/SethSharp/BlogCrud/pull/5)
