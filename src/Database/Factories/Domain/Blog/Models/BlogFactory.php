@@ -30,12 +30,12 @@ class BlogFactory extends Factory
         ];
     }
 
-    public function configure(): self
+    public function withComments(int $count = 3): self
     {
-        return $this->afterCreating(function ($blog) {
-            $comments = Comment::factory()->count(3)->create()->pluck('id');
-
-            $blog->comments()->attach($comments);
+        return $this->afterCreating(function (Blog $blog) use ($count) {
+            Comment::factory()->count($count)->create([
+                'blog_id' => $blog->id
+            ]);
         });
     }
 

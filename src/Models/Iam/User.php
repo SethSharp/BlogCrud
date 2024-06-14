@@ -35,9 +35,9 @@ class User extends Authenticatable
         return $this->hasMany(config('blog-crud.models.blog.blog'));
     }
 
-    public function comments(): BelongsToMany
+    public function comments(): HasMany
     {
-        return $this->belongsToMany(config('blog-crud.models.blog.comment'), 'comments')
+        return $this->hasMany(config('blog-crud.models.blog.comment'))
             ->withTimestamps();
     }
 
