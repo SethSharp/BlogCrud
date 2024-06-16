@@ -5,6 +5,7 @@ namespace SethSharp\BlogCrud\Models\Iam;
 use Codinglabs\Roles\HasRoles;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use SethSharp\BlogCrud\Models\Blog\Blog;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -43,5 +44,10 @@ class User extends Authenticatable
     public function likes(): HasMany
     {
         return $this->hasMany(config('blog-crud.models.blog.like'));
+    }
+
+    public function hasLikedBlog(Blog $blog): bool
+    {
+        return $this->likes()->where('blog_id', $blog->id)->exists();
     }
 }
