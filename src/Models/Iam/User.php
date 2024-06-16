@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use SethSharp\BlogCrud\Database\Factories\UserFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -41,8 +40,8 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
-    public function likedBlogs(): BelongsToMany
+    public function likes(): HasMany
     {
-        return $this->belongsToMany(config('blog-crud.models.blog.blog'), 'blog_likes', 'user_id', 'blog_id');
+        return $this->hasMany(config('blog-crud.models.blog.like'));
     }
 }
