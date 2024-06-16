@@ -48,10 +48,9 @@ class Blog extends Model
         return $this->hasMany(config('blog-crud.models.blog.comment'));
     }
 
-    public function likes(): BelongsToMany
+    public function likes(): HasMany
     {
-        return $this->belongsToMany(config('blog-crud.models.iam.user'), 'blog_likes', 'blog_id', 'user_id')
-            ->withTimestamps();
+        return $this->hasMany(config('blog-crud.models.blog.like'));
     }
 
     public function collection(): BelongsTo

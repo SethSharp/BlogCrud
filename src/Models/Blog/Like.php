@@ -7,6 +7,8 @@ use SethSharp\BlogCrud\Models\Events\LikeCreatedEvent;
 
 class Like extends Model
 {
+    protected $guarded = [];
+
     protected $dispatchesEvents = [
         'created' => LikeCreatedEvent::class
     ];
