@@ -125,3 +125,7 @@ which makes file management so easy by ensuring your S3 and DB level are in sync
 
 If you want to incorporate images with your content or just be able to build something that can integrate an editor the [TipTap Editor](https://tiptap.dev/product/editor)
 is the best choice by far - it is what I use in mine!
+
+
+# Open Source
+This is an open-source project, so contributions are welcome! Whether you want to add new features, fix bugs, or improve documentation, your help is appreciated. Submit your PR for review and I will review them as soon as possible.
